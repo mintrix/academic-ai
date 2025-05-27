@@ -1,0 +1,82 @@
+
+<div class="animated fadeInUp container-fluid px-4">
+                        <h2 class=" mb-4 text-end"><i class='fas fa-calendar-alt'></i>-{{horasActual}}</h2>                                      
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6">
+                                <div class="card bg-dark text-white mb-4">
+                                    <div class="card-body">Historicos de consultas</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <h2>115</h2>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                         
+                            <div class="col-xl-6 col-md-6">
+                                <div class="card bg-dark text-white mb-4">
+                                    <div class="card-body">Usuario registrado</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <h2>10</h2>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Grafica02
+                                    </div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Grafica01
+                                    </div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div *ngIf="loading" class="alert alert-info">Carregando usuários...</div>
+                            <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Usuarios Cadastrados
+                            </div>
+                            <div class="card-body" >
+                                <div *ngIf="loading" class="alert alert-info">Carregando usuários...</div>
+                                    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+                                    <table *ngIf="!loading && users.length" class="table table-striped table-bordered">
+                                    <thead class="bg-dark text-white">
+                                        <tr>
+                                        <th>ID</th>
+                                        <th>Rol</th>
+                                        <th>Email</th>
+                                        <th>Nome</th>
+                                        <th>Password</th>
+                                        <th>Data de Criação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let user of users">
+                                        <td>{{ user.id }}</td>
+                                        <td>{{ user.rol }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.nome }}</td>
+                                        <td>{{ user.password }}</td>
+                                        <td>{{ user.data_creacao }}</td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div> 
+                    
